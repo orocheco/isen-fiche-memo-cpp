@@ -13,6 +13,7 @@ Etudiant::Etudiant(std::string const &p, const int nbNotes) :
     }
 }
 
+/*
  Etudiant::Etudiant(Etudiant const &e) {
      _prenom = e._prenom;
     _nbNotes = e._nbNotes;
@@ -24,5 +25,12 @@ Etudiant::Etudiant(std::string const &p, const int nbNotes) :
         }
     }
  }
+ */
 
-
+void Etudiant::toString() const {
+    std::cout << _prenom << std::endl;
+    for (int i = 0; i < _nbNotes; i++) {
+        std::cout << _notes[i] << " ";
+    }
+    std::cout << std::endl;
+}

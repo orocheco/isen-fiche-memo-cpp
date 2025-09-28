@@ -31,7 +31,7 @@ public:
     /// Surcharge du constructeur.
     Etudiant(std::string const& p, const int nbNotes = 10 );
     /// Constructeur de copie
-    Etudiant(Etudiant const& e);
+    // Etudiant(Etudiant const& e);
 
     /// Accesseur pour _prenom
     const std::string& getPrenom() const { return _prenom; }
@@ -46,6 +46,11 @@ public:
     void setNote(const int i, const int note) {
         if (i < _nbNotes) _notes[i] = note;
     }
+
+    int* getNotes () const { return _notes; }
+
+
+    void toString() const;
 
 };
 
