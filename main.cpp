@@ -2,10 +2,10 @@
 
 #include "src/Etudiant.h"
 
+int nbNotes = 10;
 
 
-Etudiant* run() {
-    int nbNotes = 10;
+Etudiant* all_in_one() {
 
     // création d'une instance avec allocation dynamique
     Etudiant* paul = new Etudiant("Paul", nbNotes);
@@ -37,13 +37,30 @@ Etudiant* run() {
 
     louise.toString();
 
-    // on libère paul
+    // allocation des tableaux
+    int nbEtudiants = 13;
+    Etudiant* etudiants = new Etudiant[nbEtudiants]
+    { { "Paul"}, { "Marie", 10}, /*{ "Louise", 10} */};
+   // {};
+    for (int i = 0; i < nbEtudiants; i++) {
+        std::cout << etudiants[i].getPrenom() << " ";
+    }
+    std::cout << std::endl;
+
+    std::cout << "nombre d'étudiants: " << Etudiant::getNbEtudiants() << std::endl;
+
+
+    // libère le tableau (appelle le destructeur de chaque élément)
+    delete[] etudiants;
+
+    std::cout << "nombre d'étudiants: " << Etudiant::getNbEtudiants() << std::endl;
+
     return  paul;
 }
 
 int main() {
 
-    auto paul = run();
+    auto paul = all_in_one();
 
     paul->toString();
 

@@ -25,13 +25,16 @@ private:
     /// Liste des notes (équivalent à int* _notes{})
     int* _notes = nullptr;
 
+    static int _nbEtudiants;
+
 public:
-    /// Suppression du constructeur par défaut.
-    Etudiant() = delete;
+    /// Constructeur par défaut explicite
+    Etudiant();
     /// Surcharge du constructeur.
     Etudiant(std::string const& p, const int nbNotes = 10 );
     /// Constructeur de copie
-    // Etudiant(Etudiant const& e);
+    // Etudiant(Etudiant const& other);
+    ~Etudiant();
 
     /// Accesseur pour _prenom
     const std::string& getPrenom() const { return _prenom; }
@@ -51,6 +54,8 @@ public:
 
 
     void toString() const;
+
+    static int getNbEtudiants() { return _nbEtudiants; }
 
 };
 
